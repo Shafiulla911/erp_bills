@@ -448,7 +448,7 @@ export default function App() {
   // Theme
   const [darkMode, setDarkMode] = useState(() => {
     const s = localStorage.getItem('theme');
-    return s ? s === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return s ? s === 'dark' : (window.matchMedia?.('(prefers-color-scheme: dark)')?.matches ?? false);
   });
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
